@@ -4,10 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
-
+import {StoreProvider} from 'easy-peasy';
+import store from './store';
 ReactDOM.render(
   <Router>
+    <StoreProvider store={store}>
     <App />
+    </StoreProvider>
   </Router>,
   document.getElementById('root')
 );
