@@ -5,10 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import useStyles from './styles'
+import useStyles from './styles';
+import { useStoreState } from '../../hooks';
+
 function App() {
   const classes = useStyles();
-
+  const entries = useStoreState(state => state.guestbook.entries);
+  console.log(entries);
+  
   return (
     <div className={classes.root}>
       <AppBar position="static">
