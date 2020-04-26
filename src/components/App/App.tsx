@@ -6,13 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import useStyles from './styles';
-import { useStoreState } from '../../hooks';
+import Home from '../Home/Home';
 
 function App() {
   const classes = useStyles();
-  const entries = useStoreState(state => state.guestbook.entries);
-  console.log(entries);
-  
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -21,21 +18,16 @@ function App() {
           🍔
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Guest Book
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button component={Link} to="/" color="inherit">Home</Button>
+          <Button component={Link} to="/about" color="inherit">About</Button>
+
         </Toolbar>
       </AppBar>
       <div>
-        <div>
-          <Link to="/">Home Page</Link>
-          <span> | </span>
-          <Link to="/about">About Page</Link>
-        </div>
         <Switch>
-          <Route exact path="/">
-            <h1>Home Page</h1>
-          </Route>
+          <Route exact path="/" component={Home}/>
           <Route exact path="/about">
             <h1>About Page</h1>
           </Route>
