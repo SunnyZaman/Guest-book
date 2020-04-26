@@ -1,12 +1,13 @@
 import React from 'react';
 import { useStoreState } from '../../hooks';
 import { Card, CardContent, Typography } from '@material-ui/core';
-
+import EntryForm from '../GuestBookEntryForm/entryForm';
 function Home() {
     const entries = useStoreState(state => state.guestbook.entries);
     console.log(entries);
     return (
         <div>
+            <EntryForm/>
             {
                 entries.map((entry) => (
                     <Card>
