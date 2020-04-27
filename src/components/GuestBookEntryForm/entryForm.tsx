@@ -2,8 +2,10 @@ import React from 'react';
 import { TextField, Button, Box } from '@material-ui/core';
 import GuestBookEntry from '../../interfaces/GuestBookEntry';
 import { useForm } from 'react-hook-form';
-import useStyles from './entryFormStyle';
 import * as yup from 'yup';
+import { useStoreActions } from '../../hooks';
+import useStyles from './entryFormStyle';
+
 const GuestBookEntrySchema = yup.object().shape({
     name: yup.string().trim().required('Required'),
     content: yup.string().trim()
@@ -14,11 +16,13 @@ const GuestBookEntrySchema = yup.object().shape({
 })
 function EntryForm() {
     const classes = useStyles();
+    const addEntry = useStoreActions((state) => state.guestbook.addEntry);
     const { register, handleSubmit, errors } = useForm<GuestBookEntry>({
         validationSchema: GuestBookEntrySchema
     });
     const onSubmit = (data: GuestBookEntry): void => {
         console.log(data);
+        addEntry(data);
     };
     console.log(errors);
     return (
