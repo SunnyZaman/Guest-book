@@ -10,7 +10,7 @@ function Home() {
             <EntryForm/>
             {
                 entries.map((entry) => (
-                    <Card>
+                    <Card key={entry.id}>
                         <CardContent>
                             <Typography variant="h2">
                                 {entry.name}
@@ -19,7 +19,7 @@ function Home() {
                                 {entry.content}
                             </Typography>
                             <Typography variant="caption">
-                                {entry.submitted.toLocaleDateString()}
+                                {entry.submitted ? entry.submitted.toLocaleDateString(): ''}
                             </Typography>
                         </CardContent>
                     </Card>
