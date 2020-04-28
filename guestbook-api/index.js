@@ -8,11 +8,12 @@ server.use(middlewares)
 server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
     if(req.method === 'POST'){
-        req.body.submitted = new Date();
+        const now = new Date();
+        req.body.submitted = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
     }
     next()
 })
 server.use(router)
-server.listen(3000, () => {
+server.listen(5200, () => {
   console.log('JSON Server is running')
 })
