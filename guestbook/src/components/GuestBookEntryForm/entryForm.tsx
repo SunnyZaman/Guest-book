@@ -16,13 +16,13 @@ const GuestBookEntrySchema = yup.object().shape({
 })
 function EntryForm() {
     const classes = useStyles();
-    const addEntry = useStoreActions((state) => state.guestbook.addEntry);
+    const createEntry = useStoreActions((state) => state.guestbook.createEntry);
     const { register, handleSubmit, errors, reset } = useForm<GuestBookEntry>({
         validationSchema: GuestBookEntrySchema
     });
     const onSubmit = (data: GuestBookEntry): void => {
         console.log(data);
-        addEntry(data);
+        createEntry(data);
         reset();
     };
     console.log(errors);
