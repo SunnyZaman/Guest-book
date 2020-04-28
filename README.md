@@ -1,4 +1,5 @@
 # Guestbook
-UI framework: material-ui
-State management: easy-peasy
-Forms: react-hook-form
+* UI framework: material-ui [material-ui](https://material-ui.com/)
+* State management: [easy-peasy](https://easy-peasy.now.sh/)
+* Forms: [react-hook-form](https://react-hook-form.com/)
+* Dummy API: [json-server](https://github.com/typicode/json-server)
